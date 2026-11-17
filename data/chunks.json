@@ -1,0 +1,74 @@
+[
+  {
+    "id": "C01",
+    "page": 1,
+    "section": "Introduction to RAG",
+    "text": "Retrieval-Augmented Generation (RAG) combines information retrieval with text generation. Instead of relying only on knowledge stored in model parameters, a RAG system retrieves relevant passages from an external knowledge source and supplies them as context to a language model."
+  },
+  {
+    "id": "C02",
+    "page": 1,
+    "section": "RAG pipeline",
+    "text": "A typical RAG pipeline has five stages: document ingestion, text extraction and chunking, embedding and indexing, retrieval and reranking, and answer generation with source citations."
+  },
+  {
+    "id": "C03",
+    "page": 2,
+    "section": "Document ingestion",
+    "text": "Document ingestion begins by accepting source files such as PDF documents. The system validates file type and size, extracts text, cleans noisy content, and records document metadata. Scanned documents may require OCR before useful text can be retrieved."
+  },
+  {
+    "id": "C04",
+    "page": 2,
+    "section": "Chunking",
+    "text": "Chunking divides long documents into smaller passages that can be embedded and retrieved independently. Fixed-size chunking is simple, while recursive or structure-aware chunking attempts to preserve paragraph and heading boundaries. Chunk size and overlap affect retrieval quality and context length."
+  },
+  {
+    "id": "C05",
+    "page": 3,
+    "section": "Embeddings",
+    "text": "An embedding model maps text into a dense numerical vector. Semantically similar passages should have nearby vectors in the embedding space. The same embedding model and preprocessing strategy should be used for both indexed document chunks and incoming user queries."
+  },
+  {
+    "id": "C06",
+    "page": 3,
+    "section": "Vector search",
+    "text": "A vector database stores embeddings and associated metadata. At query time, approximate nearest-neighbour search retrieves candidate passages. Metadata filters can restrict retrieval to a particular user, document, tenant, or active document version."
+  },
+  {
+    "id": "C07",
+    "page": 4,
+    "section": "Reranking",
+    "text": "A reranker evaluates the relevance of each retrieved candidate against the user's query. A cross-encoder jointly processes the query and candidate passage, often improving the ordering of the top results at the cost of additional inference latency."
+  },
+  {
+    "id": "C08",
+    "page": 4,
+    "section": "Answer generation",
+    "text": "The generation stage constructs a prompt containing the question and selected evidence passages. The model should be instructed to answer from the supplied context, acknowledge missing evidence, and attach citations that point to the source document and page."
+  },
+  {
+    "id": "C09",
+    "page": 5,
+    "section": "Evaluation metrics",
+    "text": "Precision at k measures the fraction of the top k retrieved results that are relevant. Recall at k measures the fraction of all labelled relevant items that appear in the top k. Both require relevance labels for the evaluation queries."
+  },
+  {
+    "id": "C10",
+    "page": 5,
+    "section": "Ranking metrics",
+    "text": "Mean Reciprocal Rank (MRR) rewards systems that place the first relevant result near the top of the ranking. Normalized Discounted Cumulative Gain (nDCG) evaluates ranking quality while assigning greater weight to relevant results appearing earlier."
+  },
+  {
+    "id": "C11",
+    "page": 6,
+    "section": "Latency and observability",
+    "text": "A RAG application should measure embedding latency, retrieval latency, reranking latency, generation latency, and end-to-end latency separately. Stage-level measurements help identify bottlenecks and prevent a single total latency value from hiding slow components."
+  },
+  {
+    "id": "C12",
+    "page": 6,
+    "section": "Reliability and security",
+    "text": "Multi-user document systems must enforce authorization at retrieval time, not only in the user interface. User and document filters should be applied to vector searches. Upload validation, private object storage, secret management, deletion consistency, and safe error handling are also important."
+  }
+]

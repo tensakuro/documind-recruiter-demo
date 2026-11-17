@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What are the main stages of a RAG pipeline?",
+    "relevant": [
+      "C01",
+      "C02",
+      "C08"
+    ]
+  },
+  {
+    "question": "How does chunking affect retrieval quality?",
+    "relevant": [
+      "C04",
+      "C03"
+    ]
+  },
+  {
+    "question": "What is the purpose of embeddings in RAG?",
+    "relevant": [
+      "C05",
+      "C06"
+    ]
+  },
+  {
+    "question": "Why use a reranker after vector search?",
+    "relevant": [
+      "C07",
+      "C06"
+    ]
+  },
+  {
+    "question": "Explain precision at k, recall at k, MRR and nDCG.",
+    "relevant": [
+      "C09",
+      "C10"
+    ]
+  },
+  {
+    "question": "Which latency stages should a RAG system monitor?",
+    "relevant": [
+      "C11",
+      "C02"
+    ]
+  },
+  {
+    "question": "How do you prevent users from retrieving other users' documents?",
+    "relevant": [
+      "C12",
+      "C06"
+    ]
+  }
+]
